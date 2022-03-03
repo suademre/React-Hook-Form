@@ -22,14 +22,19 @@ export default function App() {
         <label htmlFor="lastName">Last Name: </label>
         <input
           {...register("lastName", {
-            reguired: "This is required",
-            minLength: { value: 4, message: "Min length should be min 4" }
+            required: "This is required",
+            minLength: { value: 4, message: "Min length should be min 4" },
+            maxLength: { value: 10, message: "Max length should be min 10" }
           })}
         />
         {errors.lastName && <p>{errors.lastName.message}</p>}
         <br />
         <label htmlFor="age">Age: </label>
-        <input type="number" {...register("age")} id="age" />
+        <input
+          type="number"
+          {...register("age", { valueAsNumber: true })}
+          id="age"
+        />
         <br />
         <br />
         <label htmlFor="gender">Gender:</label>
